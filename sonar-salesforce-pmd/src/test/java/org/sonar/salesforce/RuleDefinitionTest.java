@@ -20,6 +20,7 @@
 package org.sonar.salesforce.rule;
 
 import java.util.List;
+import java.util.Iterator;
 
 import org.junit.Test;
 import org.sonar.api.server.rule.RulesDefinition;
@@ -43,8 +44,16 @@ public class RuleDefinitionTest {
     assertThat(repository.name()).isEqualTo("Salesforce Analyzer");
 
     List<RulesDefinition.Rule> rules = repository.rules();
+    // assertThat(rules.get(0).key()).isEqualTo("IfElseStmtsMustUseBraces");
 
-    // assertThat(rules.size()).isEqualTo(11);
+    for (Iterator<RulesDefinition.Rule> i = rules.iterator(); i.hasNext();) {
+       RulesDefinition.Rule rule = i.next();
+         System.out.println(rule.key());
+    }
+
+
+
+    assertThat(rules.size()).isEqualTo(44);
   }
 
 }
