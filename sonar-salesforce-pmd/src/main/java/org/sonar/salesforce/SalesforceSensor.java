@@ -161,7 +161,6 @@ public class SalesforceSensor implements Sensor {
             NewIssue issue = context.newIssue()
                     .forRule(RuleKey.of(SalesforcePlugin.REPOSITORY_KEY, SalesforcePlugin.RULE_KEY));
 
-            LOGGER.debug("Violation {}: {}", violation.getRule(), violation.getDescription());
 
             Integer sCol = Integer.parseInt(violation.getBeginColumn());
             Integer eCol = Integer.parseInt(violation.getEndColumn());
@@ -208,13 +207,10 @@ public class SalesforceSensor implements Sensor {
 
             if (fileViolationCount > 0) {
                 fileViolationCount++;
-                // saveMetricOnFile(context, testFile, SalesforceMetrics.VULNERABLE_DEPENDENCIES, (double) fileViolationCount);
             }
             saveMetricOnFile(context, testFile, SalesforceMetrics.TOTAL_VIOLATIONS, (double) fileViolationCount);
-            // saveMetricOnFile(context, testFile, SalesforceMetrics.TOTAL_FILES, (double) depVulnCount);
 
             for (Violation violation : file.getViolations()) {
-                LOGGER.debug("Found violation.");
                 addIssue(context, file, testFile, violation);
                 violationCount++;
             }
