@@ -119,7 +119,6 @@ public class SalesforceSensor implements Sensor {
         StringBuilder sb = new StringBuilder();
         sb.append("Filename: ").append(file.getPath()).append(" | ");
         sb.append("Rule: ").append(violation.getRule()).append(" | ");
-        sb.append("Priority: ").append(violation.getPriority()).append(" | ");
         sb.append("Category: ").append(violation.getRuleset()).append(" | ");
         sb.append(violation.getDescription());
         return sb.toString();
