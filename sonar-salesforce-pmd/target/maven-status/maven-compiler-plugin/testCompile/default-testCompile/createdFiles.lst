@@ -1,0 +1,4 @@
+org/sonar/salesforce/rule/ApexLanguageTest.class
+org/sonar/salesforce/ReportParserTest.class
+org/sonar/salesforce/SalesforcePluginTest.class
+org/sonar/salesforce/parser/SalesforceSensorTest.class

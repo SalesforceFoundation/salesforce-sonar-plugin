@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd xmlns="http://pmd.sourceforge.net/report/2.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://pmd.sourceforge.net/report/2.0.0 http://pmd.sourceforge.net/report_2_0_0.xsd"
+    version="1.2.3" timestamp="2018-05-16T17:53:33.275">
+<file name="/path/to/src/classes/AAGH_GithubRequestHandler.cls">
+<violation beginline="36" endline="194" begincolumn="30" endcolumn="2" rule="AvoidGlobalModifier" ruleset="Best Practices" externalInfoUrl="http://pmd.sourceforge.net/snapshot/pmd_rules_apex_bestpractices.html#avoidglobalmodifier" priority="3">
+Avoid using global modifier
+</violation>
+<violation beginline="152" endline="152" begincolumn="24" endcolumn="32" rule="VariableNamingConventions" ruleset="Code Style" externalInfoUrl="http://pmd.sourceforge.net/snapshot/pmd_rules_apex_codestyle.html#variablenamingconventions" priority="1">
+Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'body_text' is not final.
+</violation>
+</file>
+<file name="/path/to/src/classes/AAGH_GithubRequestHandler_TEST.cls">
+<violation beginline="40" endline="40" begincolumn="36" endcolumn="41" rule="VariableNamingConventions" ruleset="Code Style" externalInfoUrl="http://pmd.sourceforge.net/snapshot/pmd_rules_apex_codestyle.html#variablenamingconventions" priority="1">
+Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'gr_add' is not final.
+</violation>
+<violation beginline="53" endline="53" begincolumn="36" endcolumn="42" rule="VariableNamingConventions" ruleset="Code Style" externalInfoUrl="http://pmd.sourceforge.net/snapshot/pmd_rules_apex_codestyle.html#variablenamingconventions" priority="1">
+Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'gr_add2' is not final.
+</violation>
+<violation beginline="94" endline="94" begincolumn="36" endcolumn="44" rule="VariableNamingConventions" ruleset="Code Style" externalInfoUrl="http://pmd.sourceforge.net/snapshot/pmd_rules_apex_codestyle.html#variablenamingconventions" priority="1">
+Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'gr_remove' is not final.
+</violation>
+<violation beginline="131" endline="131" begincolumn="36" endcolumn="44" rule="VariableNamingConventions" ruleset="Code Style" externalInfoUrl="http://pmd.sourceforge.net/snapshot/pmd_rules_apex_codestyle.html#variablenamingconventions" priority="1">
+Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'gr_attach' is not final.
+</violation>
+<violation beginline="161" endline="161" begincolumn="36" endcolumn="45" rule="VariableNamingConventions" ruleset="Code Style" externalInfoUrl="http://pmd.sourceforge.net/snapshot/pmd_rules_apex_codestyle.html#variablenamingconventions" priority="1">
+Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'gr_comment' is not final.
+</violation>
+<violation beginline="194" endline="194" begincolumn="16" endcolumn="23" rule="VariableNamingConventions" ruleset="Code Style" externalInfoUrl="http://pmd.sourceforge.net/snapshot/pmd_rules_apex_codestyle.html#variablenamingconventions" priority="1">
+Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'CRON_EXP' is not final.
+</violation>
+<violation beginline="194" endline="194" begincolumn="16" endcolumn="23" rule="VariableNamingConventions" ruleset="Code Style" externalInfoUrl="http://pmd.sourceforge.net/snapshot/pmd_rules_apex_codestyle.html#variablenamingconventions" priority="1">
+Variables should start with a lowercase character, 'CRON_EXP' starts with uppercase character.
+</violation>
+</file>
+<file name="/path/to/src/classes/AAGH_GithubToAgileAccelerator.cls">
+<violation beginline="36" endline="387" begincolumn="30" endcolumn="1" rule="AvoidGlobalModifier" ruleset="Best Practices" externalInfoUrl="http://pmd.sourceforge.net/snapshot/pmd_rules_apex_bestpractices.html#avoidglobalmodifier" priority="3">
+Avoid using global modifier
+</violation>
+<violation beginline="50" endline="50" begincolumn="26" endcolumn="37" rule="VariableNamingConventions" ruleset="Code Style" externalInfoUrl="http://pmd.sourceforge.net/snapshot/pmd_rules_apex_codestyle.html#variablenamingconventions" priority="1">
+Only variables that are final should contain underscores (except for underscores in standard prefix/suffix), 'INSTANCE_URL' is not final.
+</violation>
+<violation beginline="50" endline="50" begincolumn="26" endcolumn="37" rule="VariableNamingConventions" ruleset="Code Style" externalInfoUrl="http://pmd.sourceforge.net/snapshot/pmd_rules_apex_codestyle.html#variablenamingconventions" priority="1">
+Variables should start with a lowercase character, 'INSTANCE_URL' starts with uppercase character.
+</violation>
+</file>
+</pmd>

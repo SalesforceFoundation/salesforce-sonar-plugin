@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<profile>
+    <language>apex</language>
+    <name>Apex Profile</name>
+    <rules>
+        <rule>
+            <repositoryKey>Salesforce</repositoryKey>
+            <key>GenericSalesforcePmdViolation</key>
+        </rule>
+    </rules>
+</profile>

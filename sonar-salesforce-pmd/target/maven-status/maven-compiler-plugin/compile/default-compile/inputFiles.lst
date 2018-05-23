@@ -1,0 +1,15 @@
+/Users/esteele/projects/salesforce-sonar-plugin/sonar-salesforce-pmd/src/main/java/org/sonar/salesforce/parser/element/ScanInfo.java
+/Users/esteele/projects/salesforce-sonar-plugin/sonar-salesforce-pmd/src/main/java/org/sonar/salesforce/parser/ReportParser.java
+/Users/esteele/projects/salesforce-sonar-plugin/sonar-salesforce-pmd/src/main/java/org/sonar/salesforce/parser/element/DataSource.java
+/Users/esteele/projects/salesforce-sonar-plugin/sonar-salesforce-pmd/src/main/java/org/sonar/salesforce/rule/SalesforceProfile.java
+/Users/esteele/projects/salesforce-sonar-plugin/sonar-salesforce-pmd/src/main/java/org/sonar/salesforce/SalesforceSensor.java
+/Users/esteele/projects/salesforce-sonar-plugin/sonar-salesforce-pmd/src/main/java/org/sonar/salesforce/parser/element/File.java
+/Users/esteele/projects/salesforce-sonar-plugin/sonar-salesforce-pmd/src/main/java/org/sonar/salesforce/rule/GenericSalesforceRuleDefinition.java
+/Users/esteele/projects/salesforce-sonar-plugin/sonar-salesforce-pmd/src/main/java/org/sonar/salesforce/base/SalesforceMetrics.java
+/Users/esteele/projects/salesforce-sonar-plugin/sonar-salesforce-pmd/src/main/java/org/sonar/salesforce/SalesforcePlugin.java
+/Users/esteele/projects/salesforce-sonar-plugin/sonar-salesforce-pmd/src/main/java/org/sonar/salesforce/parser/element/Analysis.java
+/Users/esteele/projects/salesforce-sonar-plugin/sonar-salesforce-pmd/src/main/java/org/sonar/salesforce/parser/element/Violation.java
+/Users/esteele/projects/salesforce-sonar-plugin/sonar-salesforce-pmd/src/main/java/org/sonar/salesforce/base/package-info.java
+/Users/esteele/projects/salesforce-sonar-plugin/sonar-salesforce-pmd/src/main/java/org/sonar/salesforce/parser/XmlReportFile.java
+/Users/esteele/projects/salesforce-sonar-plugin/sonar-salesforce-pmd/src/main/java/org/sonar/salesforce/rule/ApexLanguage.java
+/Users/esteele/projects/salesforce-sonar-plugin/sonar-salesforce-pmd/src/main/java/org/sonar/salesforce/base/SalesforceConstants.java
