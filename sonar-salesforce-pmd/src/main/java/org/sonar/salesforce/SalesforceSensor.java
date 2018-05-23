@@ -174,14 +174,14 @@ public class SalesforceSensor implements Sensor {
             Integer sLine = Integer.parseInt(violation.getBeginLine());
             Integer eLine = Integer.parseInt(violation.getEndLine());
 
-            // try {
-            //     // Attemmpt to add a full location
-            //     NewIssueLocation location = issue.newLocation()
-            //         .on(inputFile)
-            //         .at(inputFile.newRange(sLine, sCol, eLine, eCol))
-            //         .message(formatDescription(file, violation));
-            //     issue.at(location);
-            // } catch (IllegalArgumentException e) {
+            try {
+                // Attemmpt to add a full location
+                NewIssueLocation location = issue.newLocation()
+                    .on(inputFile)
+                    .at(inputFile.newRange(sLine, sCol, eLine, eCol))
+                    .message(formatDescription(file, violation));
+                issue.at(location);
+            } catch (IllegalArgumentException e) {
                 // Otherwise, just log the line
                 // LOGGER.debug("Failed to create an exact location, attempting to register only the line. {}", e);
                 TextRange range = inputFile.selectLine(sLine);
@@ -190,9 +190,9 @@ public class SalesforceSensor implements Sensor {
                     .at(inputFile.selectLine(sLine))
                     .message(formatDescription(file, violation));
                 issue.at(location);
-            // }
 
             // LOGGER.debug("Couldn't create a location for {} {}:{}", file.getPath(), sLine, sCol);
+            }
 
             issue.overrideSeverity(severity);
             issue.save();
