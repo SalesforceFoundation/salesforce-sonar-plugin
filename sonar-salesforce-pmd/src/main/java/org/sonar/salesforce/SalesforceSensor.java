@@ -117,9 +117,6 @@ public class SalesforceSensor implements Sensor {
 
     private String formatDescription(File file, Violation violation) {
         StringBuilder sb = new StringBuilder();
-        sb.append("Filename: ").append(file.getPath()).append(" | ");
-        sb.append("Rule: ").append(violation.getRule()).append(" | ");
-        sb.append("Category: ").append(violation.getRuleset()).append(" | ");
         sb.append(violation.getDescription());
         return sb.toString();
     }
@@ -158,15 +155,12 @@ public class SalesforceSensor implements Sensor {
     }
 
     private void addIssue(SensorContext context, File file, InputFile inputFile, Violation violation) {
-
-        // LOGGER.debug("File {} has {} lines", file.getPath(), inputFile.lines());
         try {
-            Severity severity = priorityToSeverity(violation.getPriority(), 1, 3);
-            LOGGER.debug("Creating rule for {}.{}, {} at {}", SalesforcePlugin.REPOSITORY_KEY, SalesforcePlugin.RULE_KEY, violation, file);
+            Severity severity = priorityToSeverity(violation.getPriority(), 2, 4);
+            LOGGER.debug("Creating rule for {}.{}, {} at {}", SalesforcePlugin.REPOSITORY_KEY, SalesforcePlugin.RULE_KEY, violation.getRule(), file.getPath());
             NewIssue issue = context.newIssue()
                     .forRule(RuleKey.of(SalesforcePlugin.REPOSITORY_KEY, SalesforcePlugin.RULE_KEY));
 
-            LOGGER.debug("Looking for violation in {} from {}:{} to {}:{}", file.getPath(), violation.getBeginLine(), Integer.parseInt(violation.getBeginColumn())-1, violation.getEndLine(), Integer.parseInt(violation.getEndColumn())-1);
             LOGGER.debug("Violation {}: {}", violation.getRule(), violation.getDescription());
 
             Integer sCol = Integer.parseInt(violation.getBeginColumn());
@@ -183,20 +177,17 @@ public class SalesforceSensor implements Sensor {
                 issue.at(location);
             } catch (IllegalArgumentException e) {
                 // Otherwise, just log the line
-                // LOGGER.debug("Failed to create an exact location, attempting to register only the line. {}", e);
+                LOGGER.debug("Failed to create an exact location, attempting to register only the line.");
                 TextRange range = inputFile.selectLine(sLine);
                 NewIssueLocation location = issue.newLocation()
                     .on(inputFile)
                     .at(inputFile.selectLine(sLine))
                     .message(formatDescription(file, violation));
                 issue.at(location);
-
-            // LOGGER.debug("Couldn't create a location for {} {}:{}", file.getPath(), sLine, sCol);
             }
 
             issue.overrideSeverity(severity);
             issue.save();
-            LOGGER.debug("Logged an issue of severity {}", severity);
             incrementCount(severity);
         } catch (Exception e) {
             LOGGER.debug("Exception {} while parsing {} {}:{}", e, file.getPath(), violation.getRule());
