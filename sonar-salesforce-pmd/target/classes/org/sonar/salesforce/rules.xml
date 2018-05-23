@@ -1,7 +1,0 @@
-<rules>
-  <rule key="GenericSalesforceRule">
-    <name>A generic salesforce/pmd rule</name>
-    <configKey>GenericSalesforcePmdViolation</configKey>
-    <description>Who knows...</description>
-  </rule>
-</rules>
