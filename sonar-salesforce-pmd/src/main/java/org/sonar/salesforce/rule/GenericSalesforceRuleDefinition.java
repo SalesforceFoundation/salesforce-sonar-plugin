@@ -77,12 +77,11 @@ public class GenericSalesforceRuleDefinition implements RulesDefinition {
 
     private static final Logger LOGGER = Loggers.get(GenericSalesforceRuleDefinition.class);
 
-
     @Override
     public void define(Context context) {
 
       LOGGER.debug("PMD: In GenericSalesforceRuleDefinition define");
-       NewRepository repository = context.createRepository(SalesforcePlugin.REPOSITORY_KEY, SalesforcePlugin.LANGUAGE_KEY).setName("My Salesforce Analyzer");
+       NewRepository repository = context.createRepository(SalesforcePlugin.REPOSITORY_KEY, SalesforcePlugin.LANGUAGE_KEY).setName("Salesforce Analyzer");
        LOGGER.debug("PMD: Created repo");
 
         repository.createRule("GenericSalesforcePmdViolation")
