@@ -130,17 +130,6 @@ public class GenericSalesforceRuleDefinition implements RulesDefinition {
 
             SMInputCursor ruleCursor = rootC.childCursor();
 
-            // <rule ref="category/apex/design.xml/ExcessiveClassLength" message="Avoid really long classes (lines of code)">
-            //    <priority>3</priority>
-            //    <properties>
-            //       <property name="minimum" value="1000" />
-            //       <!-- relevant for Code Climate output only -->
-            //       <property name="cc_categories" value="Complexity" />
-            //       <property name="cc_remediation_points_multiplier" value="150" />
-            //       <property name="cc_block_highlighting" value="false" />
-            //    </properties>
-            // </rule>
-
             while (ruleCursor.getNext() != null) {
                 String nodeName = ruleCursor.getLocalName();
                 if ("rule".equals(nodeName)) {
