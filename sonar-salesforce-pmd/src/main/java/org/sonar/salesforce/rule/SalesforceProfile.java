@@ -20,29 +20,6 @@
 
 package org.sonar.salesforce.rule;
 
-// import org.sonar.api.profiles.ProfileDefinition;
-// import org.sonar.api.profiles.RulesProfile;
-// import org.sonar.api.profiles.XMLProfileParser;
-// import org.sonar.api.rules.Rule;
-// import org.sonar.api.utils.ValidationMessages;
-
-// import org.sonar.salesforce.SalesforcePlugin;
-
-// import java.io.InputStreamReader;
-
-// public class SalesforceProfile extends ProfileDefinition {
-
-//     @Override
-//     public RulesProfile createProfile(ValidationMessages validation) {
-// 		RulesProfile profile = RulesProfile.create("Salesforce", SalesforcePlugin.LANGUAGE_KEY);
-// 		profile.activateRule(Rule.create(SalesforcePlugin.REPOSITORY_KEY, "GenericSalesforcePmdViolation"), null);
-
-// 		return profile;
-
-//     }
-
-// }
-
 import org.sonar.api.server.profile.BuiltInQualityProfilesDefinition;
 import org.sonar.salesforce.SalesforcePlugin;
 import org.sonar.api.server.rule.RulesDefinition;
