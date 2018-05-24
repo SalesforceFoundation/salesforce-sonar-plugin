@@ -30,7 +30,7 @@ import java.util.List;
 public class SalesforceProfile implements BuiltInQualityProfilesDefinition {
 
 	public void define(Context context) {
-		NewBuiltInQualityProfile profile = context.createBuiltInQualityProfile("Salesforce Rules", SalesforcePlugin.LANGUAGE_KEY);
+		NewBuiltInQualityProfile profile = context.createBuiltInQualityProfile("Salesforce", SalesforcePlugin.LANGUAGE_KEY);
 		profile.setDefault(true);
 
 		profile.activateRule(SalesforcePlugin.REPOSITORY_KEY, "GenericSalesforcePmdViolation");

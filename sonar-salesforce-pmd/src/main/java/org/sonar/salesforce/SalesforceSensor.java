@@ -157,10 +157,11 @@ public class SalesforceSensor implements Sensor {
     private void addIssue(SensorContext context, File file, InputFile inputFile, Violation violation) {
         try {
             Severity severity = priorityToSeverity(violation.getPriority(), 2, 4);
-            LOGGER.debug("Creating rule for {}.{}, {} at {}", SalesforcePlugin.REPOSITORY_KEY, SalesforcePlugin.RULE_KEY, violation.getRule(), file.getPath());
-            NewIssue issue = context.newIssue()
-                    .forRule(RuleKey.of(SalesforcePlugin.REPOSITORY_KEY, SalesforcePlugin.RULE_KEY));
+            LOGGER.debug("Creating issue for rule {}:{} for file {}", SalesforcePlugin.REPOSITORY_KEY, violation.getRule(), file.getPath());
 
+
+            NewIssue issue = context.newIssue()
+                    .forRule(RuleKey.of(SalesforcePlugin.REPOSITORY_KEY, violation.getRule()));
 
             Integer sCol = Integer.parseInt(violation.getBeginColumn());
             Integer eCol = Integer.parseInt(violation.getEndColumn());
@@ -177,7 +178,6 @@ public class SalesforceSensor implements Sensor {
             } catch (IllegalArgumentException e) {
                 // Otherwise, just log the line
                 LOGGER.debug("Failed to create an exact location, attempting to register only the line.");
-                TextRange range = inputFile.selectLine(sLine);
                 NewIssueLocation location = issue.newLocation()
                     .on(inputFile)
                     .at(inputFile.selectLine(sLine))
