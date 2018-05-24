@@ -67,7 +67,7 @@ import org.sonar.api.server.rule.RulesDefinition;
 import org.sonar.api.rule.RuleStatus;
 // import org.sonar.api.server.rule.RuleParamType;
 import org.sonar.api.rule.Severity;
-// import org.sonar.api.rules.RuleType;
+import org.sonar.api.rules.RuleType;
 // import org.sonar.api.server.ServerSide;
 import org.sonar.api.utils.log.Logger;
 import org.sonar.api.utils.log.Loggers;
@@ -80,6 +80,7 @@ import org.codehaus.staxmate.in.SMInputCursor;
 import org.codehaus.staxmate.SMInputFactory;
 import org.apache.commons.lang3.StringUtils;
 import org.sonar.api.batch.rule.internal.NewRule;
+
 
 
 public class GenericSalesforceRuleDefinition implements RulesDefinition {
