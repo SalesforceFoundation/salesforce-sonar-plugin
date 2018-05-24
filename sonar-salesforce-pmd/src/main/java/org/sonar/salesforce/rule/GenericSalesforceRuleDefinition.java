@@ -101,19 +101,19 @@ public class GenericSalesforceRuleDefinition implements RulesDefinition {
         // .setTags("style", )
 
 
-        addRulesFromPmdRuleset(repository, "/org/sonar/salesforce/rulesets/apex/bestpractices.xml");
-        addRulesFromPmdRuleset(repository, "/org/sonar/salesforce/rulesets/apex/codestyle.xml");
-        addRulesFromPmdRuleset(repository, "/org/sonar/salesforce/rulesets/apex/design.xml");
-        addRulesFromPmdRuleset(repository, "/org/sonar/salesforce/rulesets/apex/errorprone.xml");
-        addRulesFromPmdRuleset(repository, "/org/sonar/salesforce/rulesets/apex/performance.xml");
-        addRulesFromPmdRuleset(repository, "/org/sonar/salesforce/rulesets/apex/security.xml");
+        addRulesFromPmdRuleset(repository, "/org/sonar/salesforce/rulesets/apex/bestpractices.xml", RuleType.BUG);
+        addRulesFromPmdRuleset(repository, "/org/sonar/salesforce/rulesets/apex/codestyle.xml", RuleType.CODE_SMELL);
+        addRulesFromPmdRuleset(repository, "/org/sonar/salesforce/rulesets/apex/design.xml", RuleType.CODE_SMELL);
+        addRulesFromPmdRuleset(repository, "/org/sonar/salesforce/rulesets/apex/errorprone.xml", RuleType.BUG);
+        addRulesFromPmdRuleset(repository, "/org/sonar/salesforce/rulesets/apex/performance.xml", RuleType.BUG);
+        addRulesFromPmdRuleset(repository, "/org/sonar/salesforce/rulesets/apex/security.xml", RuleType.VULNERABILITY);
 
 
        repository.done();
 
    }
 
-    public void addRulesFromPmdRuleset(NewRepository repository, String resourcePath){
+    public void addRulesFromPmdRuleset(NewRepository repository, String resourcePath, RuleType ruleType){
         InputStream inputStream = getClass().getResourceAsStream(resourcePath);
 
         XMLInputFactory xmlFactory = XMLInputFactory.newInstance();
@@ -156,6 +156,7 @@ public class GenericSalesforceRuleDefinition implements RulesDefinition {
 
                     NewRule rule = repository.createRule(name)
                         .setName(message)
+                        .setType(ruleType)
                         .setMarkdownDescription(description);
                 }
             }
