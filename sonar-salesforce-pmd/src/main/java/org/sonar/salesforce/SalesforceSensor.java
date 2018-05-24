@@ -124,10 +124,13 @@ public class SalesforceSensor implements Sensor {
     public static Severity priorityToSeverity(String priority, Integer critical, Integer major) {
         int score = Integer.parseInt(priority);
         if (critical > 0 && score <= critical) {
+            LOGGER.debug("Returning severity critical for value {}", priority);
             return Severity.CRITICAL;
         } else if (major > 0 && score <= major) {
+            LOGGER.debug("Returning severity major for value {}", priority);
             return Severity.MAJOR;
         } else {
+            LOGGER.debug("Returning severity minor for value {}", priority);
             return Severity.MINOR;
         }
     }
