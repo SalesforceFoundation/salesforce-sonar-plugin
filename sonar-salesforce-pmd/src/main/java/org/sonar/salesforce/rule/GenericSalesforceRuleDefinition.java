@@ -113,6 +113,17 @@ public class GenericSalesforceRuleDefinition implements RulesDefinition {
 
    }
 
+    public static String priorityToSeverity(String priority, Integer critical, Integer major) {
+        int score = Integer.parseInt(priority);
+        if (critical > 0 && score <= critical) {
+            return Severity.CRITICAL;
+        } else if (major > 0 && score <= major) {
+            return Severity.MAJOR;
+        } else {
+            return Severity.MINOR;
+        }
+    }
+
     public void addRulesFromPmdRuleset(NewRepository repository, String resourcePath, RuleType ruleType){
         InputStream inputStream = getClass().getResourceAsStream(resourcePath);
 
@@ -157,6 +168,8 @@ public class GenericSalesforceRuleDefinition implements RulesDefinition {
                     NewRule rule = repository.createRule(name)
                         .setName(message)
                         .setType(ruleType)
+                        .setSeverity(priorityToSeverity(priority, 2, 4))
+                        .setActivatedByDefault(true)
                         .setMarkdownDescription(description);
                 }
             }
