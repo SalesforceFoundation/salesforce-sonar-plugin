@@ -32,7 +32,6 @@ public class SalesforcePlugin implements Plugin {
 
     public static final String REPOSITORY_KEY = "Salesforce";
     public static final String LANGUAGE_KEY = "apex";
-    public static final String RULE_KEY = "GenericSalesforcePmdViolation";
 
     @Override
     public void define(Context context) {
