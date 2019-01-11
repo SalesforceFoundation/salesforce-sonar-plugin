@@ -33,7 +33,6 @@ public class SalesforceProfile implements BuiltInQualityProfilesDefinition {
 		NewBuiltInQualityProfile profile = context.createBuiltInQualityProfile("Salesforce", SalesforcePlugin.LANGUAGE_KEY);
 		profile.setDefault(true);
 
-		profile.activateRule(SalesforcePlugin.REPOSITORY_KEY, "GenericSalesforcePmdViolation");
 
 		profile.activateRule(SalesforcePlugin.REPOSITORY_KEY, "IfElseStmtsMustUseBraces");
 		profile.activateRule(SalesforcePlugin.REPOSITORY_KEY, "WhileLoopsMustUseBraces");

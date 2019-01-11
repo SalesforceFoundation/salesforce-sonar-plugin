@@ -20,6 +20,8 @@
 
 package org.sonar.salesforce.rule;
 import org.sonar.salesforce.SalesforcePlugin;
+
+// import org.sonar.api.config.Settings;
 import org.sonar.api.server.rule.RulesDefinition;
 // import org.sonar.api.rule.RuleKey;
 // import org.sonar.api.server.rule.RuleScope;
@@ -45,18 +47,21 @@ import org.sonar.api.batch.rule.internal.NewRule;
 public class GenericSalesforceRuleDefinition implements RulesDefinition {
 
     private static final Logger LOGGER = Loggers.get(GenericSalesforceRuleDefinition.class);
+    // private final Settings settings;
 
     @Override
     public void define(Context context) {
 
-      LOGGER.debug("PMD: In GenericSalesforceRuleDefinition define");
-       NewRepository repository = context.createRepository(SalesforcePlugin.REPOSITORY_KEY, SalesforcePlugin.LANGUAGE_KEY).setName("Salesforce Analyzer");
-       LOGGER.debug("PMD: Created repo");
+        // this.settings = context.settings();
 
-        repository.createRule("GenericSalesforcePmdViolation")
-        .setName("Generic Salesforce Pmd Violation")
-        .setHtmlDescription("Generic rule")
-        .setSeverity(Severity.MINOR);
+        LOGGER.debug("PMD: In GenericSalesforceRuleDefinition define");
+        NewRepository repository = context.createRepository(SalesforcePlugin.REPOSITORY_KEY, SalesforcePlugin.LANGUAGE_KEY).setName("Salesforce Analyzer");
+        LOGGER.debug("PMD: Created repo");
+
+        // repository.createRule("GenericSalesforcePmdViolation")
+        // .setName("Generic Salesforce Pmd Violation")
+        // .setHtmlDescription("Generic rule")
+        // .setSeverity(Severity.MINOR);
         // .setTags("style", )
 
 
@@ -123,6 +128,13 @@ public class GenericSalesforceRuleDefinition implements RulesDefinition {
                         // example
                         // tags ?
                     }
+                    // String settingsKey = "sonar.salesforce.rule." + name + ".priority";
+                    // LOGGER.debug("Looking for setting {}", settingsKey);
+                    // if (settings.hasKey(settingsKey)){
+                    //     LOGGER.debug("Found priority override for {}", name);
+                    //     priority = settings.getString(settingsKey);
+                    // }
+
 
                     NewRule rule = repository.createRule(name)
                         .setName(message)
