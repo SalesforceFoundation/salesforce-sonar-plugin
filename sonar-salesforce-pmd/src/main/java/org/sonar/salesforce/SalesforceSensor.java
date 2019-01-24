@@ -50,6 +50,7 @@ import org.sonar.salesforce.parser.XmlReportFile;
 import org.sonar.salesforce.parser.element.Analysis;
 import org.sonar.salesforce.parser.element.File;
 import org.sonar.salesforce.parser.element.Violation;
+import org.sonar.api.measures.CoreMetrics;
 
 import org.xml.sax.SAXException;
 
@@ -109,6 +110,8 @@ public class SalesforceSensor implements Sensor {
 
     private void saveMeasures(SensorContext context) {
     	LOGGER.debug("PMD: In saveMeasures");
+        // context.saveMeasure(context.module(), CoreMetrics.CRITICAL_VIOLATIONS, criticalIssuesCount);
+
         context.newMeasure().forMetric(SalesforceMetrics.HIGH_SEVERITY_VIOLATIONS).on(context.module()).withValue(criticalIssuesCount).save();
         context.newMeasure().forMetric(SalesforceMetrics.MEDIUM_SEVERITY_VIOLATIONS).on(context.module()).withValue(majorIssuesCount).save();
         context.newMeasure().forMetric(SalesforceMetrics.LOW_SEVERITY_VIOLATIONS).on(context.module()).withValue(minorIssuesCount).save();
@@ -120,7 +123,8 @@ public class SalesforceSensor implements Sensor {
         sb.append(violation.getDescription());
         return sb.toString();
     }
-
+ 
+    // TODO: Refactor
     public static Severity priorityToSeverity(String priority, Integer critical, Integer major) {
         int score = Integer.parseInt(priority);
         if (critical > 0 && score <= critical) {
@@ -153,7 +157,7 @@ public class SalesforceSensor implements Sensor {
 
     private void saveMetricOnFile(SensorContext context, InputFile inputFile, Metric<Serializable> metric, double value) {
         if (inputFile != null) {
-            context.newMeasure().on(inputFile).forMetric(metric).withValue(value);
+            // context.saveMeasure(inputFile, CoreMetrics.CRITICAL_VIOLATIONS, value);
         }
     }
 
@@ -188,7 +192,7 @@ public class SalesforceSensor implements Sensor {
                 issue.at(location);
             }
 
-            issue.overrideSeverity(severity);
+            // issue.overrideSeverity(severity);
             issue.save();
             incrementCount(severity);
         } catch (Exception e) {
