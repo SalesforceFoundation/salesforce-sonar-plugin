@@ -4,7 +4,7 @@ This plugin reads [PMD](https://pmd.github.io/) scan results for Apex code and a
 
 ## Installation
 
-Compile the plugin using `make install`. Copy the resulting sonar-salesforce-pmd-1.x.x-SNAPSHOT.jar file to your SonarQube plugins directory.
+Compile the plugin using `mvn install`. Copy the resulting sonar-salesforce-pmd-1.x.x-SNAPSHOT.jar file to your SonarQube plugins directory.
 
 ## Usage
 
