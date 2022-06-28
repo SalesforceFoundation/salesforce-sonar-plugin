@@ -12,7 +12,7 @@
     <name>Salesforce Plugin for SonarQube</name>
 
     <properties>
-        <sonar.version>7.0</sonar.version>
+        <sonar.version>7.4</sonar.version>
         <!-- Configuration for sonar-packaging-maven-plugin -->
         <sonar.pluginClass>org.sonar.salesforce.SalesforcePlugin</sonar.pluginClass>
         <sonar.pluginName>Salesforce-PMD</sonar.pluginName>
